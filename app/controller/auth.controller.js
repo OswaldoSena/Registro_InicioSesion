@@ -1,9 +1,11 @@
 import bcryptjs from "bcryptjs";
 import jsonwebtoken from "jsonwebtoken";
 import dotenv from "dotenv";
+import { conexion } from "../conection.js"
 
 dotenv.config();
 
+//DB 
 
 //DB local
 export const usuario = [{

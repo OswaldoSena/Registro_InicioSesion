@@ -10,7 +10,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 import { methods as authentication} from "./controller/auth.controller.js";
 import {methods as autorization} from "./middleware/authorization.js";
 
-//Server
+//Server configuracion dei servidor
 const app = express();
 app.set("port", 3000);
 app.listen(app.get("port"));
