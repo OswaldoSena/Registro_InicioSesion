@@ -1,6 +1,5 @@
 import jsonwebtoken from "jsonwebtoken";
 import dotenv from "dotenv";
-import { usuario } from "../controller/auth.controller.js"
 
 dotenv.config();
 
@@ -21,7 +20,8 @@ function revisarCookie(req){
       const cookieJWT = req.headers.cookie.slice(4);
       const decodificada = jsonwebtoken.verify(cookieJWT,process.env.JWT_SECRET);
       console.log(decodificada)
-      const usuarioAResvisar = usuario.find(usuario => usuario.user === decodificada.user);
+      
+      const usuarioAResvisar = user.find(user => user.user === decodificada.user);
       console.log(usuarioAResvisar)
       if(!usuarioAResvisar){
         return false

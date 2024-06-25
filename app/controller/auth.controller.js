@@ -1,7 +1,7 @@
-import bcryptjs from "bcryptjs";
+import bcrypt from "bcryptjs";
 import jsonwebtoken from "jsonwebtoken";
 import dotenv from "dotenv";
-import { conexion } from "../conection.js"
+
 
 dotenv.config();
 
@@ -10,25 +10,25 @@ dotenv.config();
 //DB local
 export const usuario = [{
     user: 'admin',
-    email: 'yiyo_9_43@hotmail.com',
+    email: 'y_9_43@hotmail.com',
     pass: '$2a$05$exV90F1GHgdjsDHw4fOkkOFvzBTTWzoCz.5mjjCEyrctp8905uMEO'
 }]
 
 async function login(req, res){
-    console.log(req.body);
+    //console.log(req.body);
     const user = req.body.user;
     const pass = req.body.pass;
     
     if (!user || !pass){
         return res.status(400).send({status:"Error", messages:"Los campos están incomplestos"})
      }
-     const usuarioARevisar = usuario.find(usuario => usuario.user===user)
+     const usuarioARevisar = user.find(user => user.user===user)
     
      if (!usuarioARevisar){
        return res.status(400).send({status:"Error", messages:"Error durante el login"})
     }
    //comparación de usuario y password
-    const loginCorrecto = await bcryptjs.compare(pass, usuarioARevisar.pass);
+    const loginCorrecto = await bcrypt.compare(pass, usuarioARevisar.pass);
    console.log(loginCorrecto)
     if(!loginCorrecto){
         return res.status(400).send({status:"Error", messages:"Error durante el login"})
@@ -53,10 +53,11 @@ async function login(req, res){
 }
 
 async function register(req, res){
-    console.log(req.body);
+    //console.log(req.body);
     const user = req.body.user;
     const email= req.body.email;
     const pass = req.body.pass;
+    
     if (!user || !email || !pass){
        return res.status(400).send({status:"Error", messages:"Los campos están incomplestos"})
     }
@@ -65,14 +66,17 @@ async function register(req, res){
        return res.status(400).send({status:"Error", messages:"Este usuario ya existe"})
     }
 //Encripta el password con 5 sales
-    const salt = await bcryptjs.genSalt(5);
-    const hashPass = await bcryptjs.hash(pass, salt);
+    const salt = await bcrypt.genSalt(5);
+    const hashPass= await bcrypt.hash(pass, salt);/* hashPass nombre pass encriptado*/ 
+    
     const nuevoUsuario = {
         user, email, pass: hashPass
     }
     usuario.push(nuevoUsuario);
-    console.log(nuevoUsuario);
-    return res.status(201).send({status:"Ok", messages: `Usuario ${nuevoUsuario.user} aregado`, redirect:"/"})
+    console.log(nuevoUsuario);       
+                          
+    return res.status(201).send({status:"Ok", messages: `Usuario ${nuevoUsuario.user} aregado`, redirect:"/"});
+    
 }
 
 export const methods = {

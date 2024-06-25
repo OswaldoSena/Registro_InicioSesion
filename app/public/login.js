@@ -5,7 +5,7 @@ document.getElementById("login-form").addEventListener("submit", async(e)=>{
     const user = e.target.children.user.value
     const pass = e.target.children.pass.value
    
-    const res = await fetch("http://localhost:3000/api/login",{
+    const res = await fetch("http://localhost:4000/api/login",{
         method: "POST",
         headers: {
             "Content-Type" : "application/json"
