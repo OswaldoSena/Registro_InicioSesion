@@ -1,5 +1,9 @@
+import app from "./servidor.js"
 import express from "express";
 import cookieParser from "cookie-parser";
+
+// requiriendo conexion base de datos
+import { methods as conexion } from "./controller/auth.controller.js"
 
 //truco __dirname
 import path from "path";
@@ -9,13 +13,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 //controlador de autenticacion
 import { methods as authentication} from "./controller/auth.controller.js";
 import {methods as autorization} from "./middleware/authorization.js";
-
-
-//Server configuracion dei servidor
-const app = express();
-app.set("port", 4000);
-app.listen(app.get("port"));
-console.log("Servidor corriendo en puerto", app.get("port"));
 
 //Configuracion paginas estaticas
 app.use(express.static(__dirname + "/public"));
@@ -37,9 +34,3 @@ app.get("/agenda",autorization.soloAdmin,(req, res)=>
 // endpoint controlador de la autenticacion
 app.post("/api/login",authentication.login);
 app.post("/api/registro",authentication.register);
-
-/* app.post("/registro", async (req, res)=>{
-    const conexion = await database.postconexion();
-    const nuevoUsuario = conexion.query("INSERT INTO usuario VALUES('"+user+"', '"+email+"', '"+pass+")")
-    console.log(nuevoUsuario)
-}) */

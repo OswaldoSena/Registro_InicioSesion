@@ -20,9 +20,9 @@ async function login(req, res){
     const pass = req.body.pass;
     
     if (!user || !pass){
-        return res.status(400).send({status:"Error", messages:"Los campos están incomplestos"})
+        return res.status(400).send({status:"Error", messages:"Los campos están incompletos"})
      }
-     const usuarioARevisar = user.find(user => user.user===user)
+     const usuarioARevisar = usuario.find(usuario => usuario.user===user)
     
      if (!usuarioARevisar){
        return res.status(400).send({status:"Error", messages:"Error durante el login"})
@@ -45,8 +45,7 @@ async function login(req, res){
            /*  httpOnly: true,//cookie solo puede acceder en el servidor
             //secure: process.env.NOVE_ENV === 'production', //la cookie solo puede acceder en https
             sameSite: "strict",//la cookie solo puede acceder en el mismo dominio
-            maxAge: 24 * 60 *60 * 1000  */
-        
+            maxAge: 24 * 60 *60 * 1000  */        
         }
         res.cookie("jwt", token, cookieOption);
         res.send({status:"ok", messages: "Usuario loggeado", redirect:"/agenda"})
@@ -59,7 +58,7 @@ async function register(req, res){
     const pass = req.body.pass;
     
     if (!user || !email || !pass){
-       return res.status(400).send({status:"Error", messages:"Los campos están incomplestos"})
+       return res.status(400).send({status:"Error", messages:"Los campos están incompletos"})
     }
     const usuarioARevisar = usuario.find(usuario => usuario.user===user)
     if (usuarioARevisar){
@@ -79,7 +78,27 @@ async function register(req, res){
     
 }
 
+/* async function guardar(req, res){
+    
+    const user = req.body.user;
+    const email= req.body.email;
+    const pass = req.body.pass;
+
+    const newUser = req.body;
+
+    req.getConnection((error, connect) =>{
+        connect.query("INSERT INTRO usuario SET ?", [newUser], (error, rows) =>{
+            if (error) throw error
+            console.log("funciona")
+            console.log(rows);
+            
+        })
+
+    })
+} */
+
 export const methods = {
     login,
-    register
+    register,
+    
 };

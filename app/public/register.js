@@ -21,3 +21,4 @@ document.getElementById("register-form").addEventListener("submit", async(e)=>{
         window.location.href = resJson.redirect;
     }
 })
+export default res;

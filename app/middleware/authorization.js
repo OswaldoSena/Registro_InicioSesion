@@ -21,7 +21,7 @@ function revisarCookie(req){
       const decodificada = jsonwebtoken.verify(cookieJWT,process.env.JWT_SECRET);
       console.log(decodificada)
       
-      const usuarioAResvisar = user.find(user => user.user === decodificada.user);
+      const usuarioAResvisar = usuario.find(usuario => usuario.user === decodificada.user);
       console.log(usuarioAResvisar)
       if(!usuarioAResvisar){
         return false
