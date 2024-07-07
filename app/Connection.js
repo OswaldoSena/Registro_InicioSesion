@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 
-const conexion = mysql.createConnection({
+export const conexion = mysql.createConnection({
     host:process.env.host,
     port:process.env.port,
     user:process.env.user,
@@ -37,12 +37,12 @@ conexion.guardar = (req, res)=> {
 
     })
 }
-/* conexion.query("SELECT * FROM usuario", (error, datos)=>{
+ conexion.query("SELECT * FROM usuario", (error, datos)=>{
     if (error) throw error
     console.log("DATOS SOLICITADOS:")
     console.log(datos)
     
-}) */ 
+}) 
 conexion.end();
 export default conexion;
 

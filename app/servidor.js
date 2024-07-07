@@ -1,6 +1,10 @@
 import express from "express";
+import dotenv from "dotenv";
 
-//Server configuracion dei servidor
+
+dotenv.config();
+
+//Server configuracion del servidor
 const app = express();
 app.set("port", process.env.PORTO || 4000);
 app.listen(app.get("port"));

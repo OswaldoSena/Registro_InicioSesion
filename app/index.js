@@ -3,7 +3,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 
 // requiriendo conexion base de datos
-import { methods as conexion } from "./controller/auth.controller.js"
+//import { methods as conexion } from "./Connection.js"
 
 //truco __dirname
 import path from "path";
@@ -22,13 +22,13 @@ app.use(express.urlencoded({extended:false}));
 
 //Rutas endpoint con middleware(script meternos en medio de req y res)
 app.get("/",autorization.soloPublic, (req, res)=>
-    res.sendFile(__dirname + "/pages/login.html")
+    res.sendFile(__dirname + "/views/login.html")
 );
 app.get("/registro",autorization.soloPublic, (req, res)=> 
-    res.sendFile(__dirname + "/pages/register.html")        
+    res.sendFile(__dirname + "/views/register.html")        
     );
-app.get("/agenda",autorization.soloAdmin,(req, res)=> 
-    res.sendFile(__dirname + "/pages/agenda/agenda.html")
+app.get("/agenda",autorization.soloAdmin,(req, res)=>
+    res.sendFile(__dirname + "/views/agenda/bienvenido.html")
 );
 
 // endpoint controlador de la autenticacion

@@ -1,0 +1,29 @@
+[33mcommit 83c114f249e2b47eeccbad1c5057d3f821e48857[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: Oswaldo <oswalramigu@gmail.com>
+Date:   Thu Jul 4 20:46:12 2024 -0500
+
+    traslade tes registro a la carpeta controller y add estructura
+
+[33mcommit b4c6246f492d8786ff0596d171d6b65c50ccb600[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Oswaldo <oswalramigu@gmail.com>
+Date:   Wed Jun 26 16:30:13 2024 -0500
+
+    realizando testing
+
+[33mcommit 5cc38f13870d78f9ec864381ef9b65c3a7d08e80[m
+Author: Oswaldo <oswalramigu@gmail.com>
+Date:   Tue Jun 25 16:14:53 2024 -0500
+
+    conexio  y consultas sql
+
+[33mcommit 010f81f5870e11ab6532a4abbca438e2987d22b1[m
+Author: Oswaldo <oswalramigu@gmail.com>
+Date:   Sun Jun 23 18:11:45 2024 -0500
+
+    configuracion de base de datos
+
+[33mcommit 705eb36ad28e1f13f7f840c4cfc4abff16a87c59[m
+Author: Oswaldo <oswalramigu@gmail.com>
+Date:   Sun Jun 23 12:10:43 2024 -0500
+
+    creacion de register and login
