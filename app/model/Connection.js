@@ -44,5 +44,5 @@ conexion.guardar = (req, res)=> {
     
 }) 
 conexion.end();
-export default conexion;
+//export default conexion;
 

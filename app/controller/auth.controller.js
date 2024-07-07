@@ -47,11 +47,11 @@ async function login(req, res){
             maxAge: 24 * 60 *60 * 1000  */        
         }
         res.cookie("jwt", token, cookieOption);
-        res.send({status:"ok", messages: "Usuario loggeado",redirect:"/agenda"});
+        res.send({status:"ok", messages: "Usuario loggeado", redirect: "/pagina"});
         }
 
 async function register(req, res){
-    console.log(req.body);
+   // console.log(req.body);
     const user = req.body.user;
     const email= req.body.email;
     const pass = req.body.pass;
