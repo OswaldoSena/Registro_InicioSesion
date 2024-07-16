@@ -21,7 +21,7 @@ app.use(cookieParser());//modifica las cookies
 app.use(express.urlencoded({extended:false}));
 
 //Rutas endpoint con middleware(script meternos en medio de req y res)
-app.get("/",autorization.soloPublic, (req, res)=>
+app.get("https://oswaldosena.github.io/Registro_InicioSesion/",autorization.soloPublic, (req, res)=>
     res.sendFile(__dirname + "/views/login.html")
 );
 app.get("/registro",autorization.soloPublic, (req, res)=> 
