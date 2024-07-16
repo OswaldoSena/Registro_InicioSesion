@@ -4,7 +4,7 @@ document.getElementById("register-form").addEventListener("submit", async(e)=>{
     
     e.preventDefault();
     console.log(e.target.children.pass.value)
-    const res =await fetch("http://localhost:3000/api/registro",{
+    const res =await fetch("https://oswaldosena.github.io/Registro_InicioSesion//api/registro",{
         method: "POST",
         headers: {
             "Content-Type" : "application/json"
